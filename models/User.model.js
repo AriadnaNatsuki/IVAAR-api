@@ -15,9 +15,10 @@ const userSchema = new mongoose.Schema(
             lowercase: true,
             match: [EMAIL_PATTERN, "Email is invalid"],
         },
-        type: {
-            type: Boolean,
-            require: true
+        role: {
+            type: [String],
+            enum: ['Particular', 'Protectora', 'Abogado/a', 'Veterinario/a']
+            //default: 'Particular'
         },
         name: {
             type: String,
