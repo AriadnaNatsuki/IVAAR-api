@@ -1,8 +1,8 @@
-requestAnimationFrame("dotenv").config()
+require("dotenv").config();
 
-const DB_NAME = 'ivaar'
-const URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
-const DB_URI = `${URI} / ${DB_NAME}`
+const DB_NAME = 'ivaar';
+const URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const DB_URI = `${URI}/${DB_NAME}`;
 
-module.exports.dbName = DB_NAME
-module.exports.db = DB_URI
+module.exports.dbName = DB_NAME;
+module.exports.db = DB_URI;
