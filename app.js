@@ -3,14 +3,14 @@ const mongoose = require('mongoose')
 const createError = require('http-errors')
 const logger = require('morgan')
 const express=require('express')
-// const cors = require("./config/cors.config");
+const cors = require("./config/cors.config");
 
 require('./config/db.config')
 const app = express()
 
 //Middlewares
 app.use(express.json())
-// app.use(cors)
+app.use(cors)
 app.use(logger('dev'))
 
 //Routes

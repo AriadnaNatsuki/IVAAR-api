@@ -10,7 +10,7 @@ mongoose.connection.once('open', () => {
     mongoose.connection.db
         .dropDatabase()
         .then(() => console.log("Database cleared"))
-    return Animal.insertMany(Animals)
+    return Animal.insertMany(animals)
         .then((animalsCreated) => console.log(`${animalsCreated.length} have been created`))
         .catch(e => console.error('Error disconencting from DB', e))
         .finally(() => {

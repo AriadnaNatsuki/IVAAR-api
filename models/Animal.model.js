@@ -34,6 +34,13 @@ const animalSchema = new mongoose.Schema(
             type: Boolean,
             required: true
         },
+        //Si no necesita casa de acogida significa que no debe aparecer
+        //en los filtros de casa de acogida porque ya esta en una o ha salido adoptado
+        //Lo mismo ocurrira con un filtro de adopciones para que no aparezcan en ese apartado
+        fosterhome: {
+            type: Boolean,
+            required:true
+        },
         weight: {
             type: Number,
             required: true
@@ -43,6 +50,10 @@ const animalSchema = new mongoose.Schema(
         //     required: "Se requiere persona responsable",
         //     ref:User
         // }
+        images:{
+            type: [String],
+            required: "Se requiere al menos una imagen"
+        }
     },
     {
         timestamps: true,
