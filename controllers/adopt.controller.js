@@ -6,7 +6,7 @@ module.exports.listAdoptions = (req, res, next) => {
 }
 module.exports.animalDetail = (req, res, next) => {
     // Animal.find({fosterhome:true})
-    Animal.find()
-        .then((animals) => res.json(animals))
+    Animal.findById(req.params.id)
+        .then((animal) => res.json(animal))
         .catch(next)
 }

@@ -6,6 +6,6 @@ const authMiddleware = require('../middlewares/authMiddleware');
 //     res.json({ message: "Hello" });
 // });
 router.get('/adopt', adoptController.listAdoptions)
-// router.get('/adopt/:id', adoptController.animalDetail)
+router.get('/adopt/:id', adoptController.animalDetail)
 
 module.exports = router;
