@@ -53,6 +53,10 @@ const animalSchema = new mongoose.Schema(
         images:{
             type: [String],
             required: "Se requiere al menos una imagen"
+        },
+        description: {
+            type: String,
+            minlength: [300, "La descripción debe ser de al menos 300 caracteres"]
         }
     },
     {
@@ -61,7 +65,7 @@ const animalSchema = new mongoose.Schema(
 )
 
 animalSchema.pre("save", function (next) {
-    i
+    
 })
 // productSchema.virtual("reviews", {
 //     ref: Review.modelName,

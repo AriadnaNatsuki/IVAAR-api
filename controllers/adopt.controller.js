@@ -1,3 +1,6 @@
+const Animal = require("../models/Animal.model")
+const createError=require('http-errors')
+
 module.exports.listAdoptions = (req, res, next) => {
     // Animal.find({fosterhome:true})
     Animal.find()
@@ -7,6 +10,12 @@ module.exports.listAdoptions = (req, res, next) => {
 module.exports.animalDetail = (req, res, next) => {
     // Animal.find({fosterhome:true})
     Animal.findById(req.params.id)
-        .then((animal) => res.json(animal))
-        .catch(next)
+        .then((animal) => {
+            if (!animal) {
+                next(createError(404))
+            } else {
+                res.json(animal)
+            }
+        })
+        .catch (next)
 }
