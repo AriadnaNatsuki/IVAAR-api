@@ -9,16 +9,17 @@ const animalSchema = new mongoose.Schema(
         },
         species:{
             type: [String],
-            enum: ['Perro', 'Gato', 'Ave', 'Caballo', 'Otro'],
+            enum: ['Perro', 'Gato', 'Ave', 'Caballo', 'Conejo','Cerdo', 'Otro'],
             required: true
         },
         genre: {
             type: [String],
-            enum: ['Hembra', 'Macho'],
+            enum: ['Female', 'Male'],
             required: true
         },
         age: {
             type: Number,
+            maxlength: 2,
             required: true
         },
         sterilized: {
@@ -27,22 +28,40 @@ const animalSchema = new mongoose.Schema(
         },
         diseases: {
             type: [String],
-            enum: ['Yes', 'No', 'Escribir...'],
+            enum: ['Yes', 'No'],
             required: true
+        },
+        diseases_description: {
+            type: String,
         },
         microchip: {
             type: Boolean,
             required: true
         },
+        microchip_number: {
+            type: Number
+        },
         //Si no necesita casa de acogida significa que no debe aparecer
         //en los filtros de casa de acogida porque ya esta en una o ha salido adoptado
         //Lo mismo ocurrira con un filtro de adopciones para que no aparezcan en ese apartado
         fosterhome: {
-            type: Boolean,
+            type: [String],
+            enum: ['Foster','Adoption'],
             required:true
         },
         weight: {
             type: Number,
+            maxlength: 2,
+            required: true
+        },
+        diseases: {
+            type: [String],
+            enum: ['Yes', 'No'],
+            required: true
+        },
+        breed: {
+            type: [String],
+            enum: ['Podenco andaluz','Bodeguero andaluz','Labrador','Otra'],
             required: true
         },
         // responsible: {
@@ -56,7 +75,15 @@ const animalSchema = new mongoose.Schema(
         },
         description: {
             type: String,
-            minlength: [300, "La descripción debe ser de al menos 300 caracteres"]
+            minlength: [5, "La descripción debe ser de al menos 300 caracteres"]
+        },
+        town: {
+            type: String,
+            required: true
+        },
+        province: {
+            type: String,
+            required: true
         }
     },
     {

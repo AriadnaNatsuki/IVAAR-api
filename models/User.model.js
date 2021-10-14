@@ -31,13 +31,13 @@ const userSchema = new mongoose.Schema(
         },
         identification_professional: {
             type: Number,
-            required: true,
+            //required: true,
             minlength: [10, "El número de colegiado debe tener una longitud de 10 caracteres"],
             maxlength: [10, "El número de colegiado debe tener una longitud de 10 caracteres"]
         },
         identification_particular: {
             type: String,
-            required: true,
+           //required: true,
             minlength: [9, "El NIF/NIE debe tener una longitud de 9 caracteres"],
         },
 
@@ -60,7 +60,7 @@ const userSchema = new mongoose.Schema(
         },
         autor: {
             type: mongoose.Types.ObjectId,
-            required:true,
+           // required:true,
             ref:"User"
         }
     },

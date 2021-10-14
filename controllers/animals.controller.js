@@ -19,3 +19,12 @@ module.exports.animalDetail = (req, res, next) => {
         })
         .catch (next)
 }
+
+module.exports.createAnimal = (req, res, next) => {
+    if (req.file) {
+        req.body.image=req.file.path
+    }
+    Animal.create(req.body)
+        .then((animal) => res.json(animal))
+    .catch(next)
+}
